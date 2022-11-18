@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
+import Header from "./components/layouts/Header";
+import Aboutus from "./components/Pages/Aboutus";
+import Definition from "./components/Pages/Definition";
+import Dictionary from "./components/Pages/Dictionary";
+import Notfound404 from "./components/Pages/Notfound404";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="bg-slate-300 min-h-screen">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Dictionary />} />
+          <Route path="/aboutus" element={<Aboutus />} />
+          <Route path="/definition/:search" element={<Definition />} />
+          <Route path="*" element={<Notfound404 />} />
+        </Routes>
+      </div>
+    </>
   );
 }
 
